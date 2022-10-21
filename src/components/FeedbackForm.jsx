@@ -8,6 +8,16 @@ export const FeedbackForm = () => {
   const [btnDisabled, setBtnDisabled] = useState(true);
 
   const handleTextChange = (e) => {
+    if (text === '') {
+      setBtnDisabled(true);
+      setMessage(null);
+    } else if (text !== '' && text.trim().length <= 10) {
+      setMessage('Text must be more than 10 characters');
+      setBtnDisabled(true);
+    } else {
+      setMessage(null);
+      setBtnDisabled(false);
+    }
     setText(e.target.value);
   };
   return (
@@ -22,8 +32,11 @@ export const FeedbackForm = () => {
             value={text}
             onChange={handleTextChange}
           />
-          <Button type='submit'>Send</Button>
+          <Button type='submit' isDisabled={btnDisabled}>
+            Send
+          </Button>
         </div>
+        {message && <div className='message'>{message}</div>}
       </form>
     </Card>
   );

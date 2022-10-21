@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Header = ({ text, bgColor, textColor }) => {
+export const Header = ({ text, bgColor, textColor }) => {
   const headerStyle = {
     backgroundColor: bgColor,
     color: textColor,
@@ -24,5 +24,3 @@ Header.propType = {
   bgColor: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
 };
-
-export default Header;

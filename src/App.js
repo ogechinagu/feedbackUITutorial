@@ -1,8 +1,12 @@
-import React from "react";
+import Header from './components/Header';
 
-import "./styles.css";
-import BlogTest from "./miscTest/blogtest";
+import './styles.css';
 
 export default function App() {
-  return <BlogTest />;
+  return (
+    <>
+      <Header />
+      <div className='container'>The Feedback App</div>
+    </>
+  );
 }

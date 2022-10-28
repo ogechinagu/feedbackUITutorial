@@ -6,7 +6,7 @@ function BlogTest() {
   const body = "This is my blog post";
 
   const comments = [
-    { id: 1, text: "Comment one" },
+    { id: 1, text: "Comment uno" },
     { id: 2, text: "Comment two" },
     { id: 3, text: "Comment three" },
   ];

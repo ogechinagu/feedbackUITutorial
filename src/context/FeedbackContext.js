@@ -7,8 +7,20 @@ export const FeedbackProvider = ({ children }) => {
     { id: 1, rating: 10, text: 'This is coming from the context' },
   ]);
 
+  const deleteFeedback = (id) => {
+    if (window.confirm('Are you sure you want to delete this comment?')) {
+      setFeedback(feedback.filter((item) => item.id !== id));
+    }
+  };
+
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = uuidv4();
+    setFeedback([newFeedback, ...feedback]);
+    console.log('Playing', newFeedback);
+  };
+
   return (
-    <FeedbackContext.Provider value={{ feedback }}>
+    <FeedbackContext.Provider value={{ feedback, deleteFeedback, addFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );
